@@ -10,7 +10,7 @@ import random
 
 def run_bot(reddit):
     try:
-        subreddit = reddit.subreddit("DuckGameClips")
+        subreddit = reddit.subreddit("Shinobunfriends")
 
         for comment in subreddit.stream.comments():
             print(comment.body)
