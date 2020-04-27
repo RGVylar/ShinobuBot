@@ -39,7 +39,7 @@ def run_bot(r):
                     time_remaining = int(i)
                     break
             if (not "seconds" or not "second" in str(e).split()):
-                time_remaining *= 60
+                time_remaining *= 600
 
         print (str(e.__class__.__name__) + ": " + str(e))
         for i in range(time_remaining, 0, -5):
