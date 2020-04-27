@@ -19,9 +19,9 @@ def run_bot(r):
         "We can't let the past be mere water under the bridge. Even so, there's no reason that we can't come together."
         ]
 
-        reddit = praw.Reddit('bot1')
+        
 
-        subreddit = reddit.subreddit("DuckGameClips")
+        subreddit = r.subreddit("DuckGameClips")
 
         for comment in subreddit.stream.comments():
             print(comment.body)
