@@ -8,7 +8,6 @@ import psycopg2
 import re
 
 if __name__ == "__main__":
-    while True:
         try:
             r = bot_login.bot_login()
         except Exception as e:
