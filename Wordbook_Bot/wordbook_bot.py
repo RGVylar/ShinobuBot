@@ -14,7 +14,7 @@ def run_bot(reddit):
 
         for comment in subreddit.stream.comments():
             print(comment.body)
-            if re.search("+Order", comment.body, re.IGNORECASE):
+            if re.search("Shinobu Order", comment.body, re.IGNORECASE):
                     marvin_reply = "[Suggested watch order](https://media.discordapp.net/attachments/652432414135681060/662034140505571378/6gqy1AQaz0AXwlkBaVPMP-ST8fwleVWMLFXAcWkBHOM.png?width=617&height=904)"
                     comment.reply(marvin_reply)
                     # print(marvin_reply)
@@ -37,9 +37,7 @@ def run_bot(reddit):
 if __name__ == "__main__":
     while True:
         try:
-            print ("\nBot on...")
             r = bot_login.bot_login()
-            print ("\nBot log")
             run_bot(r)
             time.sleep(10)
         except Exception as e:
