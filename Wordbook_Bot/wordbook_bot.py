@@ -7,9 +7,12 @@ import bot_login
 import psycopg2
 import re
 
-def run_bot(r,reddit,subreddit):
+if __name__ == "__main__":
+    print ("\nBot on...")
+    r = bot_login.bot_login()
+    print ("\nBot log")
     try:
-       marvin_quotes = \
+        marvin_quotes = \
         [
         "It's not good to expect too much, but you can't do anything if you're being overly pessimistic. If you just wait thinking it's useless, nothing will come of it.",
         "No matter what bonds you forge with others, time will tear them apart. Well... Doesn't thinking about it make you sick?",
@@ -19,6 +22,9 @@ def run_bot(r,reddit,subreddit):
         "We can't let the past be mere water under the bridge. Even so, there's no reason that we can't come together."
         ]
 
+        reddit = praw.Reddit('bot1')
+
+        subreddit = reddit.subreddit("DuckGameClips")
 
         for comment in subreddit.stream.comments():
             print(comment.body)
@@ -26,26 +32,5 @@ def run_bot(r,reddit,subreddit):
                     marvin_reply = "Shinobu says: " + random.choice(marvin_quotes)
                     comment.reply(marvin_reply)
                     print(marvin_reply)
-    # Probably low karma so can't comment as frequently
-    except Exception as e:
-        time_remaining = 15
-        if (str(e).split()[0] == "RATELIMIT:"):
-            for i in str(e).split():
-                if (i.isdigit()):
-                    time_remaining = int(i)
-                    break
-            if (not "seconds" or not "second" in str(e).split()):
-                time_remaining *= 60
-
+     except Exception as e:
         print (str(e.__class__.__name__) + ": " + str(e))
-        for i in range(time_remaining, 0, -5):
-            print ("Retrying in", i, "seconds..")
-            time.sleep(5)
-
-if __name__ == "__main__":
-    r = bot_login.bot_login()
-    reddit = praw.Reddit('bot1')
-    subreddit = reddit.subreddit("DuckGameClips")
-    run_bot(r,reddit,subreddit)
-    
-                
