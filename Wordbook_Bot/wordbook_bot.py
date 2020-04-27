@@ -7,7 +7,7 @@ import bot_login
 import psycopg2
 import re
 
-def run_bot(r):
+def run_bot(r,reddit,subreddit):
     try:
        marvin_quotes = \
         [
@@ -19,9 +19,6 @@ def run_bot(r):
         "We can't let the past be mere water under the bridge. Even so, there's no reason that we can't come together."
         ]
 
-        reddit = praw.Reddit('bot1')
-
-        subreddit = reddit.subreddit("DuckGameClips")
 
         for comment in subreddit.stream.comments():
             print(comment.body)
@@ -47,6 +44,8 @@ def run_bot(r):
 
 if __name__ == "__main__":
     r = bot_login.bot_login()
-    run_bot(r)
+    reddit = praw.Reddit('bot1')
+    subreddit = reddit.subreddit("DuckGameClips")
+    run_bot(r,reddit,subreddit)
     
                 
