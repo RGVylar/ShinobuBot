@@ -32,5 +32,4 @@ if __name__ == "__main__":
                     marvin_reply = "Shinobu says: " + random.choice(marvin_quotes)
                     comment.reply(marvin_reply)
                     print(marvin_reply)
-     except Exception as e:
-        print (str(e.__class__.__name__) + ": " + str(e))
+     
