@@ -8,7 +8,7 @@ def bot_login():
                 password = os.environ["reddit_password"],
                 client_id = os.environ["client_id"],
                 client_secret = os.environ["client_secret"],
-                user_agent = "kyle")
+                user_agent = os.environ["user_agent"])
         print ("Logged in!")
     except:
         print ("Failed to log in!")
