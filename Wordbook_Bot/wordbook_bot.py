@@ -14,7 +14,7 @@ def run_bot(reddit):
 
         for comment in subreddit.stream.comments():
             print(comment.body)
-            if re.search("Shinobu Order", comment.body, re.IGNORECASE):
+            if re.search("Monogatari Order", comment.body, re.IGNORECASE):
                     marvin_reply = "[Suggested watch order](https://media.discordapp.net/attachments/652432414135681060/662034140505571378/6gqy1AQaz0AXwlkBaVPMP-ST8fwleVWMLFXAcWkBHOM.png?width=617&height=904)"
                     comment.reply(marvin_reply)
                     # print(marvin_reply)
