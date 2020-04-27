@@ -48,11 +48,11 @@ def run_bot(r):
 
 if __name__ == "__main__":
     try:
-    print ("\nBot on...")
-    r = bot_login.bot_login()
-    print ("\nBot log")
-    run_bot(r)
-    time.sleep(10)
+        print ("\nBot on...")
+        r = bot_login.bot_login()
+        print ("\nBot log")
+        run_bot(r)
+        time.sleep(10)
     except Exception as e:
             print (str(e.__class__.__name__) + ": " + str(e))
             time.sleep(15)
