@@ -6,6 +6,7 @@ import json
 import bot_login
 import psycopg2
 import re
+import random
 
 def run_bot(r):
     try:
