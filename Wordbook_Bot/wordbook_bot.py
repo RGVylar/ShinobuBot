@@ -8,7 +8,7 @@ import psycopg2
 import re
 import random
 
-def run_bot(r):
+def run_bot(reddit):
     try:
         marvin_quotes = \
         [
@@ -22,7 +22,7 @@ def run_bot(r):
 
         
 
-        subreddit = r.subreddit("DuckGameClips")
+        subreddit = reddit.subreddit("DuckGameClips")
 
         for comment in subreddit.stream.comments():
             print(comment.body)
