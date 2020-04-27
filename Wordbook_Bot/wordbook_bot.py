@@ -7,10 +7,7 @@ import bot_login
 import psycopg2
 import re
 
-if __name__ == "__main__":
-    print ("\nBot on...")
-    r = bot_login.bot_login()
-    print ("\nBot log")
+def run_bot(r):
     try:
         marvin_quotes = \
         [
@@ -32,4 +29,28 @@ if __name__ == "__main__":
                     marvin_reply = "Shinobu says: " + random.choice(marvin_quotes)
                     comment.reply(marvin_reply)
                     print(marvin_reply)
-     
+         
+    # Probably low karma so can't comment as frequently
+    except Exception as e:
+        time_remaining = 15
+        if (str(e).split()[0] == "RATELIMIT:"):
+            for i in str(e).split():
+                if (i.isdigit()):
+                    time_remaining = int(i)
+                    break
+            if (not "seconds" or not "second" in str(e).split()):
+                time_remaining *= 60
+
+        print (str(e.__class__.__name__) + ": " + str(e))
+        for i in range(time_remaining, 0, -5):
+            print ("Retrying in", i, "seconds..")
+            time.sleep(5)
+
+[
+
+if __name__ == "__main__":
+    print ("\nBot on...")
+    r = bot_login.bot_login()
+    print ("\nBot log")
+    run_bot(r, created_utc, conn)
+    time.sleep(10)
