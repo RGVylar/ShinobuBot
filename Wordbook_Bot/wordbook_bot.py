@@ -32,14 +32,14 @@ def run_bot(r):
          
     # Probably low karma so can't comment as frequently
     except Exception as e:
-        time_remaining = 15
+        time_remaining = 600
         if (str(e).split()[0] == "RATELIMIT:"):
             for i in str(e).split():
                 if (i.isdigit()):
                     time_remaining = int(i)
                     break
             if (not "seconds" or not "second" in str(e).split()):
-                time_remaining *= 600
+                time_remaining *= 60
 
         print (str(e.__class__.__name__) + ": " + str(e))
         for i in range(time_remaining, 0, -5):
